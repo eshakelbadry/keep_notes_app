@@ -22,15 +22,12 @@ class KeepNotes extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(
-          create: (context) => AddNoteCubit(),
-        ),
-       
+        BlocProvider(create: (context) => AddNoteCubit()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(brightness: Brightness.dark,fontFamily: 'Poppins'),
-        home:const NotesView(),
+        theme: ThemeData(brightness: Brightness.dark, fontFamily: 'Poppins'),
+        home: const NotesView(),
       ),
     );
   }
