@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import '../../models/note_model.dart';
 import '../edit_note_view.dart';
 
 class NoteItem extends StatelessWidget {
-  const NoteItem({super.key});
+  const NoteItem({super.key, required this.note});
+  final NoteModel note;
 
   @override
   Widget build(BuildContext context) {
@@ -19,21 +21,21 @@ class NoteItem extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.only(top: 24, bottom: 24, left: 16),
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(16),
-            color: const Color(0xffffcc80)),
+            borderRadius: BorderRadius.circular(16), color: Color(note.color)),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             ListTile(
-              title: const Text(
-                'Flutter Tips',
-                style: TextStyle(color: Colors.black, fontSize: 26),
+              title: Text(
+                note.title,
+                style: const TextStyle(color: Colors.black, fontSize: 26),
               ),
               // horizontalTitleGap: 15,
-              subtitle: const Padding(
-                padding: EdgeInsets.only(top: 16, bottom: 16),
-                child: Text('Build your career with eshak elbadry',
-                    style: TextStyle(color: Colors.black54, fontSize: 18)),
+              subtitle: Padding(
+                padding: const EdgeInsets.only(top: 16, bottom: 16),
+                child: Text(note.subTitle,
+                    style:
+                        const TextStyle(color: Colors.black54, fontSize: 18)),
               ),
               trailing: IconButton(
                 onPressed: () {},
@@ -44,11 +46,11 @@ class NoteItem extends StatelessWidget {
                 ),
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.only(right: 24),
+            Padding(
+              padding: const EdgeInsets.only(right: 24),
               child: Text(
-                'May 21, 2022',
-                style: TextStyle(
+                note.date,
+                style: const TextStyle(
                   color: Colors.black54,
                   fontSize: 16,
                 ),
