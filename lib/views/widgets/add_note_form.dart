@@ -41,9 +41,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
             onSaved: (value) {
               subTitle = value;
             }),
-        const ColorsListView(
-          
-        ),
+        const ColorsListView(),
         const SizedBox(height: 32),
         BlocBuilder<AddNoteCubit, AddNoteState>(
           builder: (context, state) {
